@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Tools">
+            <file name="info-jiripospisil-pb4nb-actions-SendSelectedTextAction.instance">
+                <attr name="delegate" newvalue="info.jiripospisil.pb4nb.actions.SendSelectedTextAction"/>
+                <attr name="displayName" bundlevalue="info.jiripospisil.pb4nb.actions.Bundle#CTL_SendSelectedTextAction"/>
+                <attr name="iconBase" stringvalue="info/jiripospisil/pb4nb/resources/icon.gif"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Tools">
+            <file name="info-jiripospisil-pb4nb-actions-SendSelectedTextAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/info-jiripospisil-pb4nb-actions-SendSelectedTextAction.instance"/>
+                <attr name="position" intvalue="140"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Toolbars">
+        <folder name="Tools">
+            <file name="info-jiripospisil-pb4nb-actions-SendSelectedTextAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/info-jiripospisil-pb4nb-actions-SendSelectedTextAction.instance"/>
+                <attr name="position" intvalue="140"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Shortcuts">
+        <file name="SO-P.shadow">
+            <attr name="originalFile" stringvalue="Actions/Tools/info-jiripospisil-pb4nb-actions-SendSelectedTextAction.instance"/>
+        </file>
+    </folder>
+</filesystem>
