@@ -27,6 +27,7 @@ public class LanguageStore {
         elements.add(new LanguageElement(new String[]{"text/x-c++"}, "cpp", "C++"));
         elements.add(new LanguageElement(new String[]{"text/x-scala"}, "scala", "Scala"));
         elements.add(new LanguageElement(new String[]{"text/x-ruby"}, "ruby", "Ruby"));
+        elements.add(new LanguageElement(new String[]{"text/x-python"}, "python", "Python"));
         elements.add(new LanguageElement(new String[]{"text/x-groovy"}, "groovy", "Groovy"));
         elements.add(new LanguageElement(new String[]{"text/x-php5","text/x-php"}, "php", "PHP"));
         elements.add(new LanguageElement(new String[]{"text/javascript"}, "javascript", "JavaScript"));
