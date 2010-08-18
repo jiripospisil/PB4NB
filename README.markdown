@@ -21,4 +21,4 @@ Installation
 Usage
 -----
  
-Select some text and click the Pastebin.com icon in the NB menus (Tools or Toolbar) or by pressing Alt+Shift+P.
+Select some text and click the Pastebin.com icon in the NB menus (Tools or Toolbar) or press Alt+Shift+P.
