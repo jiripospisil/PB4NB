@@ -6,13 +6,13 @@ A NetBeans module allowing you to send snippets to Pastebin.com from the IDE.
 Installation
 ------------
 
-* Source
+**Source**
 
  1.  Clone the repository.
  2.  Open up the NetBeans project.
  3.  Right-click the project and select "Install/Reload in Development IDE".
 
-* NBM
+**NBM**
 
  1.  [Download the latest NBM](http://github.com/mekishizufu/PN4NB/downloads).
  2.  Open up the Plugins manager (Tools -> Plugins).
