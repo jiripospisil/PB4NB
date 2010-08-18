@@ -18,7 +18,7 @@ Installation
  2.  Open up the Plugins manager (Tools -> Plugins).
  3.  Select the downloaded NBM in the "Downloaded" tab.
  
- Usage
- -----
+Usage
+-----
  
 Select some text and click the Pastebin.com icon in the NB menus (Tools or Toolbar) or by pressing Alt+Shift+P.
