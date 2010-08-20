@@ -22,3 +22,8 @@ Usage
 -----
  
 Select some text and click the Pastebin.com icon in the NB menus (Tools or Toolbar) or press Alt+Shift+P.
+
+Screenshot
+----------
+
+![PB4NB in action](http://img202.imageshack.us/img202/7690/pb4nb.png)
