@@ -49,8 +49,13 @@ public class PostDialog extends JFrame {
 
         DocumentInfo docInfo = CurrentDocument.getDocumentInfo();
 
-        this.languages = new JComboBox(new LanguageComboBoxModel());
-        this.expiration = new JComboBox(new ExpirationComboBoxModel());
+        LanguageComboBoxModel languageComboBoxModel = new LanguageComboBoxModel();
+        languageComboBoxModel.setSelectedItem(docInfo.getContentType());
+        this.languages = new JComboBox(languageComboBoxModel);
+        
+        ExpirationComboBoxModel expirationComboBoxModel = new ExpirationComboBoxModel();
+        expirationComboBoxModel.setSelectedItem("1M");
+        this.expiration = new JComboBox(expirationComboBoxModel);
 
         this.editor = new JEditorPane();
         this.editor.setEditorKit(
