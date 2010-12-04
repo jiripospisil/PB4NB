@@ -36,7 +36,7 @@ public class PostDialog extends JFrame {
 
     @SuppressWarnings("LeakingThisInConstructor")
     public PostDialog() {
-        //SwingJavaBuilder.getConfig().addResourceBundle("PostDialog");
+        SwingJavaBuilder.getConfig().addResourceBundle(PostDialog.class.getName());
 
         this.languages = new JComboBox(new LanguageComboBoxModel());
         this.expiration = new JComboBox(new ExpirationComboBoxModel());

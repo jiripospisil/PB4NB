@@ -1,5 +1,5 @@
 JFrame(name=frame, title=frame.title, size=packed, locationRelativeTo=null):
-    - JButton(name=submit, text=button.save)
+    - JButton(name=submit, text=button.submit)
     - JComboBox(name=languages)
     - JComboBox(name=expiration)
     - JEditorPane(name=editor, border=gray 1)
@@ -12,8 +12,8 @@ JFrame(name=frame, title=frame.title, size=packed, locationRelativeTo=null):
           [pref]              [100,grow]     [pref]               [grow,100]    [pref]            [grow,100]
           "label.text"
           editor+*> [grow]
-          help
+          help+*>
           "label.languages"   languages      "label.exposure"     exposure      "label.email"     txtEmail
           "label.expiration"  expiration     "label.name_title"   txtNameTitle  "label.subdomain" txtSubdomain
           submit+*>
-          {editor: height 150}
+          {editor: height 150, submit: tag ok}
