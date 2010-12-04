@@ -12,6 +12,8 @@ package info.jiripospisil.pb4nb.ui;
 
 import info.jiripospisil.pb4nb.ui.models.ExpirationComboBoxModel;
 import info.jiripospisil.pb4nb.ui.models.LanguageComboBoxModel;
+import info.jiripospisil.pb4nb.utils.editor.CurrentDocument;
+import info.jiripospisil.pb4nb.utils.editor.DocumentInfo;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javax.swing.JComboBox;
@@ -30,23 +32,30 @@ public class PostDialog extends JFrame {
 
     private final BuildResult result;
     private final PropertyChangeSupport support;
-    private final JComboBox languages;
-    private final JComboBox expiration;
-    private final JEditorPane editor;
+    private JComboBox languages;
+    private JComboBox expiration;
+    private JEditorPane editor;
 
     @SuppressWarnings("LeakingThisInConstructor")
     public PostDialog() {
+        setupComponents();
+
+        this.support = new PropertyChangeSupport(this);
+        this.result = SwingJavaBuilder.build(this);
+    }
+
+    private void setupComponents() {
         SwingJavaBuilder.getConfig().addResourceBundle(PostDialog.class.getName());
+
+        DocumentInfo docInfo = CurrentDocument.getDocumentInfo();
 
         this.languages = new JComboBox(new LanguageComboBoxModel());
         this.expiration = new JComboBox(new ExpirationComboBoxModel());
 
         this.editor = new JEditorPane();
         this.editor.setEditorKit(
-                MimeLookup.getLookup("text/x-java").lookup(EditorKit.class));
-
-        this.support = new PropertyChangeSupport(this);
-        this.result = SwingJavaBuilder.build(this);
+                MimeLookup.getLookup(docInfo.getContentType()).lookup(EditorKit.class));
+        this.editor.setText(docInfo.getText());
     }
 
     @Override
