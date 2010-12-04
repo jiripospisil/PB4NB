@@ -1,4 +1,4 @@
-JFrame(name=frame, title=frame.title, size=packed, locationRelativeTo=null):
+JFrame(name=frame, title=frame.title, size=packed, locationRelativeTo=null, iconImage=images.pb_icon):
     - JButton(name=submit, text=button.submit)
     - JComboBox(name=languages)
     - JComboBox(name=expiration)
