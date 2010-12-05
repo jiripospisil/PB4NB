@@ -10,9 +10,7 @@
  */
 package info.jiripospisil.pb4nb.actions;
 
-import info.jiripospisil.pb4nb.ui.PostDialogController;
-import info.jiripospisil.pb4nb.ui.PostDialogModel;
-import info.jiripospisil.pb4nb.ui.PostDialogView;
+import info.jiripospisil.pb4nb.ui.PostDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
@@ -29,11 +27,7 @@ public final class SendSelectedTextAction implements ActionListener {
 
             @Override
             public void run() {
-                PostDialogModel model = new PostDialogModel();
-                PostDialogView view = new PostDialogView();
-                PostDialogController controller = new PostDialogController(model, view);
-
-                view.setVisible(true);
+                new PostDialog().setVisible(true);
             }
         });
     }
