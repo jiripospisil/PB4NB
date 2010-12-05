@@ -6,7 +6,7 @@
             <file name="info-jiripospisil-pb4nb-actions-SendSelectedTextAction.instance">
                 <attr name="delegate" newvalue="info.jiripospisil.pb4nb.actions.SendSelectedTextAction"/>
                 <attr name="displayName" bundlevalue="info.jiripospisil.pb4nb.actions.Bundle#CTL_SendSelectedTextAction"/>
-                <attr name="iconBase" stringvalue="info/jiripospisil/pb4nb/resources/icon.gif"/>
+                <attr name="iconBase" stringvalue="info/jiripospisil/pb4nb/ui/images/icon.gif"/>
                 <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
                 <attr name="noIconInMenu" boolvalue="false"/>
             </file>
