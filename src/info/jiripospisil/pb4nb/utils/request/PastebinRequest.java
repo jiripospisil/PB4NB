@@ -26,7 +26,8 @@ import java.util.logging.Logger;
  */
 public class PastebinRequest {
 
-    private static final Logger log = Logger.getLogger(PastebinRequest.class.getName());
+    private static final Logger log = Logger.getLogger(PastebinRequest.class.
+            getName());
     private static final String URL = "http://pastebin.com/api_public.php";
     private static final String CHARSET = "UTF-8";
     private final URLConnection urlConnection;
@@ -50,7 +51,8 @@ public class PastebinRequest {
         }
     }
 
-    private void sendRequest(Post post) throws UnsupportedEncodingException, IOException {
+    private void sendRequest(Post post) throws UnsupportedEncodingException,
+            IOException {
         output = new OutputStreamWriter(
                 urlConnection.getOutputStream(), CHARSET);
         output.write(post.toString());
