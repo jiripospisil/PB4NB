@@ -27,7 +27,7 @@ public class Preferences {
 
     public void load() {
         setNameTitle(NbPreferences.forModule(Preferences.class).get("nameTitle", ""));
-        setEmail(NbPreferences.forModule(Preferences.class).get("email", "test@test.com"));
+        setEmail(NbPreferences.forModule(Preferences.class).get("email", ""));
         setSubdomain(NbPreferences.forModule(Preferences.class).get("subdomain", ""));
     }
 
