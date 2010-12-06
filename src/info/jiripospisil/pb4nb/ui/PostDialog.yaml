@@ -6,8 +6,8 @@ JFrame(name=frame, title=frame.title, size=870x650, locationRelativeTo=null, ico
     - JScrollPane(name=editor_pane, vScrollBar=asNeeded, hScrollBar=asNeeded):
       JEditorPane(name=editor)
     - JPanel(name=exposure):
-        - JRadioButton(name=exposure_public, text=Public)
-        - JRadioButton(name=exposure_private, text=Private, selected=true)
+        - JRadioButton(name=exposure_public, text=radiobutton.exposure_public)
+        - JRadioButton(name=exposure_private, text=radiobutton.exposure_private, selected=true)
         - ButtonGroup: [exposure_public, exposure_private]
     - MigLayout: |
           [pref]              [100,grow]  20   [pref]               [grow,100]  20  [pref]            [grow,100]
