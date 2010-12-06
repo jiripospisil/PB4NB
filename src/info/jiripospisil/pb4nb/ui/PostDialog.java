@@ -12,6 +12,7 @@ package info.jiripospisil.pb4nb.ui;
 
 import info.jiripospisil.pb4nb.ui.models.ExpirationComboBoxModel;
 import info.jiripospisil.pb4nb.ui.models.LanguageComboBoxModel;
+import info.jiripospisil.pb4nb.ui.models.Preferences;
 import info.jiripospisil.pb4nb.utils.editor.CurrentDocument;
 import info.jiripospisil.pb4nb.utils.editor.DocumentInfo;
 import java.beans.PropertyChangeListener;
@@ -32,9 +33,9 @@ public class PostDialog extends JFrame {
 
     private final BuildResult result;
     private final PropertyChangeSupport support;
-    private JComboBox languages;
-    private JComboBox expiration;
+    private JComboBox languages, expiration;
     private JEditorPane editor;
+    private Preferences preferences;
 
     @SuppressWarnings("LeakingThisInConstructor")
     public PostDialog() {
@@ -52,7 +53,7 @@ public class PostDialog extends JFrame {
         LanguageComboBoxModel languageComboBoxModel = new LanguageComboBoxModel();
         languageComboBoxModel.setSelectedItem(docInfo.getContentType());
         this.languages = new JComboBox(languageComboBoxModel);
-        
+
         ExpirationComboBoxModel expirationComboBoxModel = new ExpirationComboBoxModel();
         expirationComboBoxModel.setSelectedItem("1M");
         this.expiration = new JComboBox(expirationComboBoxModel);
@@ -61,6 +62,18 @@ public class PostDialog extends JFrame {
         this.editor.setEditorKit(
                 MimeLookup.getLookup(docInfo.getContentType()).lookup(EditorKit.class));
         this.editor.setText(docInfo.getText());
+
+        this.preferences = new Preferences();
+        this.preferences.load();
+    }
+
+    private void post() {
+        this.preferences.save();
+    }
+
+    private void close() {
+        setVisible(false);
+        dispose();
     }
 
     @Override
