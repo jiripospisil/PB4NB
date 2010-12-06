@@ -28,8 +28,8 @@ public class Post {
     private String email;
     private String subdomain;
     private int privacy;
-    private String expire;
-    private String format;
+    private String expiration;
+    private String language;
 
     @Override
     public String toString() {
@@ -38,8 +38,8 @@ public class Post {
                 encode(emptyStringIfNull(email)),
                 encode(emptyStringIfNull(subdomain)),
                 encode(privacy),
-                encode(emptyStringIfNull(expire)),
-                encode(emptyStringIfNull(format)));
+                encode(emptyStringIfNull(expiration)),
+                encode(emptyStringIfNull(language)));
     }
 
     private String emptyStringIfNull(String str) {
@@ -62,20 +62,16 @@ public class Post {
         this.email = email;
     }
 
-    public void setExpire(String expire) {
-        this.expire = expire;
+    public void setExpiration(String expire) {
+        this.expiration = expire;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
+    public void setLanguage(String format) {
+        this.language = format;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPrivacy(int privacy) {
-        this.privacy = privacy;
     }
 
     public void setPrivacy(boolean privacy) {
