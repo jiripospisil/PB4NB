@@ -15,13 +15,23 @@ import info.jiripospisil.pb4nb.ui.models.LanguageComboBoxModel;
 import info.jiripospisil.pb4nb.ui.models.Preferences;
 import info.jiripospisil.pb4nb.utils.editor.CurrentDocument;
 import info.jiripospisil.pb4nb.utils.editor.DocumentInfo;
+import info.jiripospisil.pb4nb.utils.request.PastebinRequest;
+import info.jiripospisil.pb4nb.utils.request.Post;
+import info.jiripospisil.pb4nb.utils.stores.ExpirationElement;
+import info.jiripospisil.pb4nb.utils.stores.LanguageElement;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.text.EditorKit;
 import org.javabuilders.BuildResult;
+import org.javabuilders.annotations.DoInBackground;
+import org.javabuilders.event.BackgroundEvent;
 import org.javabuilders.swing.SwingJavaBuilder;
 import org.netbeans.api.editor.mimelookup.MimeLookup;
 
@@ -31,6 +41,8 @@ import org.netbeans.api.editor.mimelookup.MimeLookup;
  */
 public class PostDialog extends JFrame {
 
+    private static final Logger log = Logger.getLogger(PastebinRequest.class.
+            getName());
     private final BuildResult result;
     private final PropertyChangeSupport support;
     private JComboBox languages, expiration;
@@ -41,8 +53,8 @@ public class PostDialog extends JFrame {
     public PostDialog() {
         setupComponents();
 
-        this.support = new PropertyChangeSupport(this);
-        this.result = SwingJavaBuilder.build(this);
+        support = new PropertyChangeSupport(this);
+        result = SwingJavaBuilder.build(this);
     }
 
     private void setupComponents() {
@@ -52,23 +64,61 @@ public class PostDialog extends JFrame {
 
         LanguageComboBoxModel languageComboBoxModel = new LanguageComboBoxModel();
         languageComboBoxModel.setSelectedItem(docInfo.getContentType());
-        this.languages = new JComboBox(languageComboBoxModel);
+        languages = new JComboBox(languageComboBoxModel);
 
         ExpirationComboBoxModel expirationComboBoxModel = new ExpirationComboBoxModel();
         expirationComboBoxModel.setSelectedItem("1M");
-        this.expiration = new JComboBox(expirationComboBoxModel);
+        expiration = new JComboBox(expirationComboBoxModel);
 
-        this.editor = new JEditorPane();
-        this.editor.setEditorKit(
+        editor = new JEditorPane();
+        editor.setEditorKit(
                 MimeLookup.getLookup(docInfo.getContentType()).lookup(EditorKit.class));
-        this.editor.setText(docInfo.getText());
+        editor.setText(docInfo.getText());
 
-        this.preferences = new Preferences();
-        this.preferences.load();
+        preferences = new Preferences();
+        preferences.load();
     }
 
-    private void post() {
-        this.preferences.save();
+    @DoInBackground(progressMessage = "label.sending")
+    private void post(BackgroundEvent evt) {
+        preferences.save();
+
+        try {
+            Post post = getPostFromForm();
+            String url = new PastebinRequest().execute(post);
+            new CopyDialog(url).setVisible(true);
+        } catch (Exception ex) {
+            showAndLogErrorMessage(ex);
+        }
+    }
+
+    private void showAndLogErrorMessage(Exception ex) {
+        JOptionPane.showMessageDialog(this, "Unable to send the post. See log for details.");
+        log.log(Level.SEVERE, ex.toString());
+    }
+
+    private Post getPostFromForm() {
+        Post post = new Post();
+
+        post.setEmail(preferences.getEmail());
+        post.setName(preferences.getNameTitle());
+        post.setSubdomain(preferences.getSubdomain());
+        post.setText(editor.getText());
+
+        boolean exposure = ((JRadioButton) result.get("exposure_private")).
+                isSelected();
+        post.setPrivacy(exposure);
+
+        LanguageElement languageElement = (LanguageElement) languages.getModel().
+                getSelectedItem();
+        post.setLanguage(languageElement.getCode());
+
+        ExpirationElement expirationElement = (ExpirationElement) expiration.
+                getModel().
+                getSelectedItem();
+        post.setExpiration(expirationElement.getCode());
+
+        return post;
     }
 
     private void close() {
