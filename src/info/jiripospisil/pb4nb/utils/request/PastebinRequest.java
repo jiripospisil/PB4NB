@@ -43,8 +43,7 @@ public class PastebinRequest {
     public String execute(Post post) throws Exception {
         try {
             sendRequest(post);
-            String response = getResponse();
-            return evaluateResponse(response);
+            return evaluateResponse(getResponse());
         } finally {
             closeStream(input);
             closeStream(output);
