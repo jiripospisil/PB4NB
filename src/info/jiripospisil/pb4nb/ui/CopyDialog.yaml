@@ -1,0 +1,10 @@
+JDialog(name=dialog, title=frame.title, size=packed, locationRelativeTo=null, resizable=false):
+    - JButton(name=copyClose, text=Copy&Close, onAction=[copy, close])
+    - JButton(name=close, text=close, onAction=[close])
+    - JTextField(name=urlField, editable=false)
+    - MigLayout: |
+          "URL:"
+          urlField+*>
+          copyClose       close
+
+
