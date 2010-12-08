@@ -16,13 +16,15 @@ public class CopyDialog extends JDialog {
     @SuppressWarnings("LeakingThisInConstructor")
     public CopyDialog(String url) {
         this.url = url;
-        
+
         setupComponents();
 
         this.result = SwingJavaBuilder.build(this);
     }
 
     private void setupComponents() {
+        SwingJavaBuilder.getConfig().addResourceBundle(CopyDialog.class.getName());
+
         urlField = new JTextField(url);
     }
 
