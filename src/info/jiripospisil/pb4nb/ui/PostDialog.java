@@ -28,6 +28,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.SwingUtilities;
 import javax.swing.text.EditorKit;
 import org.javabuilders.BuildResult;
 import org.javabuilders.annotations.DoInBackground;
@@ -85,8 +86,16 @@ public class PostDialog extends JFrame {
 
         try {
             Post post = getPostFromForm();
-            String url = new PastebinRequest().execute(post);
-            new CopyDialog(url).setVisible(true);
+            final String url = new PastebinRequest().execute(post);
+
+            SwingUtilities.invokeLater(new Runnable() {
+
+                @Override
+                public void run() {
+                    new CopyDialog(url).setVisible(true);
+                }
+            });
+
         } catch (Exception ex) {
             showAndLogErrorMessage(ex);
         }
