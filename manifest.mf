@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 OpenIDE-Module: info.jiripospisil.pb4nb
 OpenIDE-Module-Layer: info/jiripospisil/pb4nb/layer.xml
 OpenIDE-Module-Localizing-Bundle: info/jiripospisil/pb4nb/Bundle.properties
-OpenIDE-Module-Specification-Version: 0.1
+OpenIDE-Module-Specification-Version: 0.2
 
