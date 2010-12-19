@@ -3,8 +3,8 @@ JDialog(name=dialog, title=frame.title, size=packed, modalityType=APPLICATION_MO
     - JButton(name=close, text=button.close, onAction=[close])
     - JTextField(name=urlField, editable=false)
     - MigLayout: |
-          "URL:"
+          [300]
           urlField+*>
-          copyClose       close
+          >copyClose+*=1,close=1
 
 
