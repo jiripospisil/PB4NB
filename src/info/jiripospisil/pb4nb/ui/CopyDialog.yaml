@@ -1,4 +1,4 @@
-JDialog(name=dialog, title=frame.title, size=packed, modalityType=APPLICATION_MODAL, locationRelativeTo=null, resizable=false):
+JDialog(name=dialog, title=copy_frame.title, size=packed, modalityType=APPLICATION_MODAL, locationRelativeTo=null, resizable=false):
     - JButton(name=copyClose, text=button.copyclose, onAction=[copy, close])
     - JButton(name=close, text=button.close, onAction=[close])
     - JTextField(name=urlField, editable=false)

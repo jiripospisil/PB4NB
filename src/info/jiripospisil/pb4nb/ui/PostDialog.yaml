@@ -1,4 +1,4 @@
-JFrame(name=frame, title=frame.title, size=870x650, locationRelativeTo=null, iconImage=images.pb_icon):
+JFrame(name=frame, title=post_frame.title, size=870x650, locationRelativeTo=null, iconImage=images.pb_icon):
     - JButton(name=submit, text=button.submit, onAction=[$validate, post, close])
     - JComboBox(name=languages)
     - JComboBox(name=expiration)
