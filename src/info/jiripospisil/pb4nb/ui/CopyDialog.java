@@ -2,8 +2,7 @@ package info.jiripospisil.pb4nb.ui;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-import javax.swing.JDialog;
-import javax.swing.JTextField;
+import javax.swing.*;
 import org.javabuilders.BuildResult;
 import org.javabuilders.swing.SwingJavaBuilder;
 
@@ -20,12 +19,18 @@ public class CopyDialog extends JDialog {
         setupComponents();
 
         this.result = SwingJavaBuilder.build(this);
+
+        requestCopyCloseButtonFocus();
     }
 
     private void setupComponents() {
         SwingJavaBuilder.getConfig().addResourceBundle(CopyDialog.class.getName());
 
         urlField = new JTextField(url);
+    }
+
+    private void requestCopyCloseButtonFocus() {
+        ((JButton) result.get("copyClose")).requestFocusInWindow();
     }
 
     private void copy() {
