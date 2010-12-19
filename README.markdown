@@ -14,7 +14,7 @@ Installation
 
 **NBM**
 
- 1.  [Download the latest NBM](http://github.com/mekishizufu/PN4NB/downloads).
+ 1.  [Download the latest NBM](https://github.com/mekishizufu/PB4NB/downloads).
  2.  Open up the Plugins manager (Tools -> Plugins).
  3.  Select the downloaded NBM in the "Downloaded" tab.
  
