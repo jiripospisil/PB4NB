@@ -14,7 +14,7 @@ Installation
 
 **NBM**
 
- 1.  [Download the latest NBM](http://github.com/mekishizufu/PN4NB/downloads).
+ 1.  [Download the latest NBM](https://github.com/mekishizufu/PB4NB/downloads).
  2.  Open up the Plugins manager (Tools -> Plugins).
  3.  Select the downloaded NBM in the "Downloaded" tab.
  
@@ -26,4 +26,4 @@ Select some text and click the Pastebin.com icon in the NB menus (Tools or Toolb
 Screenshot
 ----------
 
-![PB4NB in action](http://img202.imageshack.us/img202/7690/pb4nb.png)
+![PB4NB in action](https://github.com/mekishizufu/PB4NB/raw/master/screen.png)
