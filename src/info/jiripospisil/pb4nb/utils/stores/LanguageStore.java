@@ -22,9 +22,11 @@ public class LanguageStore {
     private final List<LanguageElement> elements = new ArrayList<LanguageElement>(20);
 
     public LanguageStore() {
+        // new String[] {mime types}, "pastebin.com format", "GUI text")
         elements.add(new LanguageElement(new String[] {"text/plain"}, "text", "None"));
         elements.add(new LanguageElement(new String[] {"text/x-java"}, "java", "Java"));
-        elements.add(new LanguageElement(new String[] {"text/x-c++"}, "cpp", "C++"));
+        elements.add(new LanguageElement(new String[] {"text/x-c++", "text/x-c",
+                    "text/x-h"}, "cpp", "C/C++"));
         elements.add(new LanguageElement(new String[] {"text/x-scala"}, "scala", "Scala"));
         elements.add(new LanguageElement(new String[] {"text/x-ruby"}, "ruby", "Ruby"));
         elements.add(new LanguageElement(new String[] {"text/x-python"}, "python", "Python"));
