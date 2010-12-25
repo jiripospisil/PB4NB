@@ -19,15 +19,20 @@ import info.jiripospisil.pb4nb.utils.request.PastebinRequest;
 import info.jiripospisil.pb4nb.utils.request.Post;
 import info.jiripospisil.pb4nb.utils.stores.ExpirationElement;
 import info.jiripospisil.pb4nb.utils.stores.LanguageElement;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.text.EditorKit;
 import org.javabuilders.BuildResult;
@@ -53,6 +58,7 @@ public class PostDialog extends JFrame {
     @SuppressWarnings("LeakingThisInConstructor")
     public PostDialog() {
         setupComponents();
+        setupShortcuts();
 
         support = new PropertyChangeSupport(this);
         result = SwingJavaBuilder.build(this);
@@ -78,6 +84,17 @@ public class PostDialog extends JFrame {
 
         preferences = new Preferences();
         preferences.load();
+    }
+
+    private void setupShortcuts() {
+        rootPane.registerKeyboardAction(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                close();
+            }
+        }, KeyStroke.getKeyStroke(
+                KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
     }
 
     @DoInBackground(progressMessage = "label.sending")
